@@ -1,6 +1,6 @@
 import data from "../data/data.json";
 
-export const pedirProductos = () => {
+export const orderProducts = () => {
     return new Promise ((resolve, reject) => {
         setTimeout(() => {
             resolve(data)
@@ -10,7 +10,7 @@ export const pedirProductos = () => {
 }
 
 
-export const pedirItemPorId = (id) => {
+export const requestItemId = (id) => {
     return new Promise ((resolve, reject) => {
 
         const item = data.find((el) => el.id === id);

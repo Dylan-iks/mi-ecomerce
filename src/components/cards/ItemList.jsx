@@ -1,7 +1,9 @@
-const ItemList = ( { productos } ) => {
+import { Link } from "react-router-dom"
+
+const ItemList = ( { productos, titulo } ) => {
     return (
         <div className="main">
-            <h1>Productos</h1>
+            <h1>{titulo}</h1>
             <div className="productos">{ 
                 productos.length > 0 && 
 
@@ -12,7 +14,7 @@ const ItemList = ( { productos } ) => {
                             <h2>{producto.title}</h2>
                             <p>Precio: ${producto.price}</p>
                             <p>Categoria: {producto.category}</p>
-                            <a className="ver-mas" href="{`/item/${producto.id}`}">Ver más</a>
+                            <Link className="ver-mas" to= {`/item/${producto.id}`} >Ver más</Link>
                         </div>  
                     )
                 })

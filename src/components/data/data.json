@@ -52,7 +52,7 @@
         "id": 7,
         "title": "Antec NX292",
         "image": "../public/img/gabinete1.jpg",
-        "category": "Procesador",
+        "category": "Gabinete",
         "description": "" ,
         "price": 150
     },
@@ -60,7 +60,7 @@
         "id": 8,
         "title": "Lian Li O11",
         "image": "../public/img/gabinete2.jpg",
-        "category": "Procesador",
+        "category": "Gabinete",
         "description": "" ,
         "price": 150
     },
@@ -68,7 +68,7 @@
         "id": 9,
         "title": "Lian Li Lancool",
         "image": "../public/img/gabinete3.jpg",
-        "category": "Procesador",
+        "category": "Gabinete",
         "description": "" ,
         "price": 150
     }

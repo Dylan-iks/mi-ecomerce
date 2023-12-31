@@ -1,23 +1,24 @@
+import { Link } from "react-router-dom"
 import CartWidget from "./CartWidget"
 import "./NavBar.css"
 
 const NavBar = () => {
     return (
-        <div id = "navbar">
-            <h1>EG</h1>
+        <nav className = "navbar">
+            <Link to = "/" className="logo"><h1>EG</h1></Link>
             <ul>
                 <li>
-                    <a href="">Procesadores</a>
+                    <Link to="/productos/Procesador">Procesadores</Link>
                 </li>
                 <li>
-                    <a href="">Placa de video</a>
+                    <Link to="/productos/GPU">Placa de video</Link>
                 </li>
                 <li>
-                    <a href="">Gabinete</a>
+                    <Link to="/productos/Gabinete">Gabinete</Link>
                 </li>
             </ul>
             <CartWidget/>
-        </div>
+        </nav>
     )
 }
 

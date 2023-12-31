@@ -8,7 +8,7 @@ const ItemDetail = ( {item} ) => {
             <h3>{item.title}</h3>
             <p>{item.description}</p>
             <p>{item.category}</p>
-            <p>${item.precio}</p>
+            <p>${item.price}</p>
         </div>
 
     </div>
