@@ -5,12 +5,10 @@
     align-items: center;
 }
 
-/* #cards {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-} */
+.main h1 {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
 
 .productos {
     display: grid;
@@ -35,9 +33,12 @@
 }
 
 .ver-mas {
+    display: flex;
+    justify-content: center;
     text-decoration: none;
     color: #FEFAE0;
     background-color: #5F6F52;
     padding: 5px;
     border-radius: 0.5rem;
+    width: 50%;
 }

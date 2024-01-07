@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import {requestItemId} from '../helpers/orderProducts';
 import ItemDetail from './ItemDetail';
 import { useParams } from 'react-router-dom';
+import "./ItemDetailContainer.css"
+
 
 const ItemDetailContainer = () => {
 
@@ -21,6 +23,7 @@ const ItemDetailContainer = () => {
     return (
     <div>
         {item && <ItemDetail item = {item}/>}
+        
     </div>
   )
 }

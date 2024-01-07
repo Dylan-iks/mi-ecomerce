@@ -1,0 +1,26 @@
+.contenedor-contadores{
+    display: flex;
+    flex-direction: row;
+    
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+}
+
+
+.sumar{
+    border-style: none;
+    background-color: #5F6F52;
+    color: #FEFAE0;
+    width: 20%;
+    height: 10%;
+    border-radius: 0.5rem;
+}
+
+.comprar{
+    border-style: none;
+    background-color: #5F6F52;
+    color: #FEFAE0;
+    width: 100%;
+    border-radius: 0.5rem;
+}

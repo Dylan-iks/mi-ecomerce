@@ -9,7 +9,7 @@ const ItemList = ( { productos, titulo } ) => {
 
                 productos.map((producto) => {
                     return(
-                        <div className="item">
+                        <div className="item" key={producto.id}>
                             <img src={producto.image} alt="" />
                             <h2>{producto.title}</h2>
                             <p>Precio: ${producto.price}</p>

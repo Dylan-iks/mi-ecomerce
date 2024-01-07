@@ -1,0 +1,20 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+}
+
+.container img{
+    width: 30%;
+}
+
+.producto-detalle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 50px;
+}
+
+.producto-detalle h3 {
+font-size: 50px;
+}
