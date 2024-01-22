@@ -6,7 +6,7 @@ const CartWidget = () => {
     return (
         <div className="cartwidget">
             <MdOutlineShoppingCart color = "#FEFAE0" size={30} />
-            <p>1</p>
+            <p>0</p>
         </div>
     )
 }

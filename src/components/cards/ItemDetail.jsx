@@ -1,7 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ItemCount from "../ItemCount/ItemCount"
 
 const ItemDetail = ( {item} ) => {
+
+  const [cantidad, setCantidad] = useState(1)
+
+    const sumar = () => {
+        cantidad < item.stock && setCantidad(cantidad + 1)
+    }
+
+    const restar = () => {
+      cantidad > 1 && setCantidad(cantidad - 1)
+    }
+
+    const comprar = () => {
+        console.log({...item, cantidad});
+    }
   return (
     <div className='container'>
         <img src={item.image} alt={item.title} />
@@ -10,7 +24,7 @@ const ItemDetail = ( {item} ) => {
             <p>{item.description}</p>
             <p>{item.category}</p>
             <p>${item.price}</p>
-            <ItemCount stock={item.stock}></ItemCount>
+            <ItemCount cantidad={cantidad} sumar={sumar} restar={restar} comprar={comprar} />
         </div>
 
     </div>

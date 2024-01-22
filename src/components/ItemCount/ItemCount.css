@@ -1,7 +1,6 @@
 .contenedor-contadores{
     display: flex;
     flex-direction: row;
-    
     justify-content: space-between;
     margin-bottom: 10px;
 
@@ -13,8 +12,16 @@
     background-color: #5F6F52;
     color: #FEFAE0;
     width: 20%;
-    height: 10%;
+    height: 20%;
     border-radius: 0.5rem;
+    border: 2px solid #5F6F52;
+    
+}
+
+.sumar:hover {
+    background-color: white;
+    color: black;
+       
 }
 
 .comprar{
@@ -23,4 +30,11 @@
     color: #FEFAE0;
     width: 100%;
     border-radius: 0.5rem;
+    border: 2px solid #5F6F52;
+}
+
+.comprar:hover {
+    background-color: white;
+    color: black;
+       
 }
