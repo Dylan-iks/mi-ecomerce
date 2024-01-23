@@ -43,6 +43,7 @@
     flex-direction: row;
     justify-content: center;
     gap: 1rem;
+    text-decoration: none;
 }
 
 .cartwidget img {
@@ -53,4 +54,5 @@
 .cartwidget p {
     margin-right: 50px;
     color: #FEFAE0;
+    
 }
