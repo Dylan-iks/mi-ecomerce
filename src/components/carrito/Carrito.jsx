@@ -8,7 +8,7 @@ const Carrito = () => {
         vaciarCarrito()
     }
   return (
-    <div>
+    <div >
         <h1>Carrito</h1>
 
         {
