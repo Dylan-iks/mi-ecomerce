@@ -2,7 +2,11 @@ import React, { useContext } from 'react'
 import { CartContext } from '../context/CartContext'
 
 const Carrito = () => {
-    const { carrito } = useContext(CartContext)
+    const { carrito, precioTotal, vaciarCarrito } = useContext(CartContext)
+
+    const handleVaciar = () => {
+        vaciarCarrito()
+    }
   return (
     <div>
         <h1>Carrito</h1>
@@ -19,7 +23,15 @@ const Carrito = () => {
             ))
         }
 
-        <h2>Precio total: </h2>
+        {   carrito.length > 0 ? 
+        
+            <>
+                <h2>Precio total: ${ precioTotal() }</h2> 
+                <button onClick={ handleVaciar }>Vaciar</button>
+            </> :
+            <h2>El carrito está vacío</h2>
+        }
+        
     </div>
   )
 }
