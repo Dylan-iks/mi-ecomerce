@@ -1,11 +1,12 @@
 import React, { useContext, useState } from 'react'
 import ItemCount from "../ItemCount/ItemCount"
 import { CartContext } from '../context/CartContext'
+import "./ItemDetailContainer.css"
 
 const ItemDetail = ( {item} ) => {
 
   const { carrito, agregarAlCarrito } = useContext(CartContext)
-  console.log(carrito);
+  
 
   const [cantidad, setCantidad] = useState(1)
 
@@ -22,7 +23,7 @@ const ItemDetail = ( {item} ) => {
   
   return (
     <div className='container'>
-        <img src={item.image} alt={item.title} />
+        <img className='imagen' src={item.image} alt={item.title} />
         <div className='producto-detalle'>
             <h3>{item.title}</h3>
             <p>{item.description}</p>

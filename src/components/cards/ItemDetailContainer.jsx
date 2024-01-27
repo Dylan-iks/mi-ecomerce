@@ -1,37 +1,51 @@
-import React, { useEffect, useState } from 'react'
-import ItemDetail from './ItemDetail';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import "./ItemDetailContainer.css";
-import { doc, getDoc } from "firebase/firestore"
-import { db } from "../firebase/config";
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../firebase/config';
+import ItemDetail from './ItemDetail';
+import Swal from 'sweetalert2';
 
 const ItemDetailContainer = () => {
+  const [item, setItem] = useState(null);
+  const { id } = useParams();
 
-    const [item, setItem] = useState(null);
-    const id = useParams().id;
-    
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const docRef = doc(db, 'productos', id);
+        const docSnapshot = await getDoc(docRef);
 
+        if (docSnapshot.exists()) {
+          setItem({
+            ...docSnapshot.data(),
+            id: docSnapshot.id,
+          });
+        } else {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'El documento no existe',
+          });
+          
+        }
+      } catch (error) {
+        console.error('Error al obtener el documento:', error);
+        Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Hubo un error al obtener el documento',
+        });
+      }
+    };
 
-    useEffect(() => {
+    fetchData();
+  }, [id]);
 
-      const docRef = doc(db, "productos", id);
-
-      getDoc(docRef)
-        .then((resp) => {
-          setItem(
-            { ...resp.data(), id: resp.id }
-          );
-        })
-      
-    }, [id])
-    
-  
-    return (
+  return (
     <div>
-        {item && <ItemDetail item = {item}/>}
-        
+      {item && <ItemDetail item={item} />}
     </div>
-  )
-}
+  );
+};
 
-export default ItemDetailContainer
+export default ItemDetailContainer;

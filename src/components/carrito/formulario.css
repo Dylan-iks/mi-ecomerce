@@ -1,6 +1,5 @@
 .formulario {
-    margin-left: 50px;
-    margin-top: 50px;
+    margin: 50px 0px 0px 50px;
 }
 
 .formulario form {
@@ -28,6 +27,23 @@
 
 .formulario form button:hover {
     background-color: white;
-    color: black;
-       
+    color: black;  
+}
+
+.orden{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    gap: 2rem;
+}
+
+.boton-orden{
+    text-decoration: none;
+    background-color: #5F6F52;
+    color: #FEFAE0;
+    border-radius: 0.5rem;
+    border: 2px solid #5F6F52;
+    padding: 1px 6px;
 }

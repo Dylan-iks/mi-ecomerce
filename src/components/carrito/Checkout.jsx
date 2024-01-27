@@ -1,59 +1,79 @@
-import React, { useContext, useState } from 'react'
+
+import { useContext, useState } from "react";
 import { CartContext } from '../context/CartContext'
-import { useForm } from 'react-hook-form';
-import { collection, addDoc, doc } from 'firebase/firestore';
+import { addDoc, collection } from "firebase/firestore";
 import { db } from '../firebase/config'
+import { Link } from "react-router-dom";
+import Form from "./Form";
+import Swal from 'sweetalert2';
+import "./formulario.css"
+
+
 
 const Checkout = () => {
+  const [datosForm, setDatosForm] = useState({
+    nombre: "",
+    telefono: "",
+    email: "",
+    emailRepetido: ""
+  });
+  const [idOrden, setIdOrden] = useState(null);
+  const { carrito, precioTotal, vaciarCarrito } = useContext(CartContext);
 
-    const [pedidoId, setPedidoId] = useState("")
+  const guardarDatosInput = (event) => {
+    setDatosForm({ ...datosForm, [event.target.name]: event.target.value });
+  };
 
-    const { carrito, precioTotal, vaciarCarrito } = useContext(CartContext)
-
-    const { register, handleSubmit } = useForm();
-
-   const comprar = (data) => {
-    const pedido = {
-        cliente: data,
-        productos: carrito,
-        total: precioTotal()
+  const enviarOrder = (event) => {
+    event.preventDefault();
+    if (datosForm.email === datosForm.emailRepetido) {
+      const orden = {
+        comprador: { ...datosForm },
+        productos: [...carrito],
+        fecha: new Date(),
+        total: precioTotal(),
+      };
+  
+      subirOrden(orden);
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Los correos electrónicos deben ser iguales',
+      });
     }
+  };
+  
 
-    console.log(pedido);
-
-    const pedidosRef = collection(db, "pedidos")
-
-    addDoc(pedidosRef, pedido)
-        .then((doc) => {
-            setPedidoId(doc.id)
-            vaciarCarrito()
-        })
-
-   }
-
-   if (pedidoId) {
-        return (
-            <div className='formulario'>
-                <h1 className='main-title'>Muchas gracias por tu compra </h1>
-                <p>Tu número de pedido es: {pedidoId}</p>
-            </div>
-        ) 
-   }
+  const subirOrden = (orden) => {
+    const ordenesRef = collection(db, "ordenes");
+    addDoc(ordenesRef, orden).then((respuesta) => {
+      setIdOrden(respuesta.id)
+      
+      vaciarCarrito()
+    });
+  };
 
   return (
-    <div className='formulario'>
-        <h1>Finalizar compra</h1>
-        <form onSubmit={handleSubmit(comprar)}>
-            <input type="text" placeholder='Ingresá tu nombre' {...register("nombre")}/>
-            
-            <input  type="email" placeholder='ingresá tu email' {...register("email")}/>
-
-            <input type='phone' placeholder='ingresá tu teléfono' {...register("telefono")}/>
-            
-            <button type='submit'>Comprar</button>
-        </form>
+    <div className="checkout">
+      {idOrden ? (
+        <div className="orden">
+          <h2>Orden Generada correctamente!!</h2>
+          <p>N° de orden: {idOrden} </p>
+          <Link className="boton-orden" to="/">Ver mas productos</Link>
+        </div>
+      ) : (
+        <Form
+          datosForm={datosForm}
+          guardarDatosInput={guardarDatosInput}
+          enviarOrder={enviarOrder}
+        />
+      )}
     </div>
-  )
-}
+  );
+};
+export default Checkout;
 
-export default Checkout
+
+
+  

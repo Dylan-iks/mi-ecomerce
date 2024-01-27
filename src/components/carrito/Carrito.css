@@ -5,6 +5,11 @@
     gap: 1.5rem;
 }
 
+.carrito h1 {
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
 .producto {
     display: flex;
     flex-direction: row;
@@ -13,13 +18,14 @@
     padding: 16px 0px 16px 0px;
     border: 2px solid #5F6F52;
     border-radius: 0.5rem;
+    background-color: #5F6F52;
+    color: #FEFAE0;
     
 }
 
 .producto h3 {
     width: 200px;
     padding-left: 10px;
-
 }
 
 .cant-producto {
@@ -29,19 +35,42 @@
 .info-carrito {
     display: flex;
     flex-direction: column;
+    
+}
+
+.info-carrito h2 {
+    display: flex;
     justify-content: end;
+    margin-top: 16px;
+    margin-bottom: 16px;
 }
 
 .finalizar-compra {
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+.finalizar-compra-btn{
     text-decoration: none;
     background-color: #5F6F52;
     color: #FEFAE0;
-    border-radius: 0.5rem;
+    border-radius: 0 0.5rem 0.5rem 0;
+    border: 2px solid #5F6F52;
+    height: 30px;
+    padding: 1px 6px;
 
 }
 
-
+.vaciar-compra-btn{
+    text-decoration: none;
+    background-color: #FEFAE0;
+    color: #5F6F52;
+    border-radius: 0.5rem 0 0 0.5rem;
+    border: 2px solid #5F6F52;
+    height: 30px;
+    padding: 1px 6px;
+}
 

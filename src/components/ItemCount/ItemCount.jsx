@@ -1,4 +1,4 @@
-import { useState } from "react"
+
 import "./ItemCount.css"
 
 const ItemCount = ({cantidad, sumar, restar, comprar}) => {

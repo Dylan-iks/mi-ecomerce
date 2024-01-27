@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import ItemList from "./ItemList";
-import "./ItemListStyle.css"
 import { useParams } from "react-router-dom";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../firebase/config";
+import ItemList from "./ItemList";
+import "./ItemListStyle.css"
+
 
 const ItemListContainer = () => {
 
@@ -19,8 +20,10 @@ const ItemListContainer = () => {
 
         if(category){
             consulta = query(productosRef, where("category", "==", category))
+            setTitulo(category)
         }else{
             consulta = productosRef
+            setTitulo("Productos")
         }
 
 

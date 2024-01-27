@@ -1,9 +1,9 @@
 
 import { useContext } from "react";
-import "./NavBar.css"
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { CartContext } from "../context/CartContext";
 import { Link } from "react-router-dom";
+import "./NavBar.css"
 
 const CartWidget = () => {
 
